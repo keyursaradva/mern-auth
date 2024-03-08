@@ -1,17 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from './routes/user.route.js'
-// import dotenv from 'dotenv';
-// dotenv.config();
+import dotenv from 'dotenv'
+dotenv.config()
 
-// process.env.MONGO
-
-mongoose.connect("mongodb+srv://saradvakeyur:keyur1507@auth.jbkdgmw.mongodb.net/mern-auth?retryWrites=true&w=majority&appName=auth")
+mongoose.connect(process.env.MONGODB)
 .then(()=>{
-    console.log('connected to MongoDB');
-})
-.catch((err)=>{
-    console.log(err);
+    console.log("Connected to MnogoDB");
+})  
+.catch((e)=>{
+    console.log(e);
 });
 
 const app = express();
